@@ -400,4 +400,4 @@ export default function Navbar() {
       </div>
     </nav>
   );
-}
+}// navbar v1
