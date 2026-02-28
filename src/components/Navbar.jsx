@@ -46,27 +46,57 @@ export default function Navbar() {
       position="static"
       elevation={0}
       sx={{
-        backgroundColor: "#86AED4",
-        paddingY: 1
+        backgroundColor: "#88c0f9",
+        height: 80,
+        justifyContent: "center"
       }}
     >
-      <Container maxWidth="lg">
-        <Toolbar disableGutters sx={{ justifyContent: "space-between" }}>
-          
-          <Typography
-            variant="h6"
-            sx={{
-              fontWeight: 600,
-              color: "#1f2d3d",
-              cursor: "pointer"
-            }}
-          >
-            Process Feedback
-          </Typography>
+      <Container maxWidth="xl">
+        <Toolbar
+          disableGutters
+          sx={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "space-between"
+          }}
+        >
+          {/* Logo + tagline */}
+          <Box sx={{ display: "flex", flexDirection: "column", ml:6 }}>
+            <Typography
+              sx={{
+                fontSize: 24,
+                fontWeight: 700,
+                color: "#243447",
+                lineHeight: 1.2
+              }}
+            >
+              Process Feedback
+            </Typography>
+            <Typography
+              sx={{
+                fontSize: 14,
+                color: "#243447",
+                opacity: 0.8
+              }}
+            >
+              Every Student's Work Has a Story
+            </Typography>
+          </Box>
 
-          <Box sx={{ display: "flex", gap: 4, position: "relative" }}>
+          {/* Nav Links */}
+          <Box sx={{ display: "flex", gap: 1,mr:20 }}>
+            {/* home button */}
             <Button
-              sx={{ color: "#1f2d3d", textTransform: "none", fontWeight: 500 }}
+              sx={{
+                fontSize: 16,
+                fontWeight: 700,
+                color: "#305674",
+                textTransform: "none",
+                "&:hover": {
+                    backgroundColor: "#DAE8FE",
+                    borderRadius: 3
+                    }
+              }}
             >
               Home
             </Button>
@@ -76,14 +106,20 @@ export default function Navbar() {
                 key={item.label}
                 onMouseEnter={() => setActiveMenu(index)}
                 onMouseLeave={() => setActiveMenu(null)}
-                sx={{ position: "relative" }}
+                sx={{ position: "relative", "&:hover": {
+                              backgroundColor: "#DAE8FE",
+                              borderRadius: 3,
+
+                            } }}
               >
+                {/* rest of the buttons */}
                 <Button
-                  endIcon={<ExpandMoreIcon />}
+                  endIcon={<ExpandMoreIcon sx={{ fontSize: 22 }} />}
                   sx={{
-                    color: "#1f2d3d",
-                    textTransform: "none",
-                    fontWeight: 500
+                    fontSize: 16,
+                    fontWeight: 700,
+                    color: "#305674",
+                    textTransform: "none"
                   }}
                 >
                   {item.label}
@@ -91,28 +127,31 @@ export default function Navbar() {
 
                 {activeMenu === index && (
                   <Paper
-                    elevation={3}
+                    elevation={0}
                     sx={{
                       position: "absolute",
                       top: "100%",
                       left: 0,
-                      mt: 1,
-                      minWidth: 240,
-                      borderRadius: 3,
-                      backgroundColor: "#BFD3EA",
-                      paddingY: 1
+                      mt: 2,
+                      minWidth: 40,
+                      borderRadius: 4,
+                      backgroundColor: "#DAE8FE",
+                      border: "1px solid #5E9BFF",
+                      boxShadow: "0 8px 24px rgba(0,0,0,0.15)"
                     }}
                   >
-                    <MenuList>
+                    <MenuList sx={{ paddingY: 1 }}>
                       {item.items.map((subItem) => (
                         <MenuItem
                           key={subItem}
                           sx={{
-                            fontSize: 18,
-                            paddingY: 1.5,
+                            fontSize: 16,
+                            paddingY: 1,
                             paddingX: 3,
+                            borderRadius: 3,
+                            color: "#3B4A5A",
                             "&:hover": {
-                              backgroundColor: "rgba(0,0,0,0.05)"
+                              backgroundColor: "#ffffff"
                             }
                           }}
                         >
