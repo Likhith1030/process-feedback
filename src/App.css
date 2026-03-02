@@ -1,38 +1,124 @@
-.App {
-  text-align: center;
+.custom-navbar {
+  background-color: #88c0f9 !important;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  min-height: 70px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.custom-navbar .navbar-brand {
+  color: #243447 !important;
+  font-size: 1.5rem;
+  font-weight: 700;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+.custom-navbar .nav-link {
+  color: #243447 !important;
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+
+.custom-navbar .nav-link:hover {
+  color: #0d1f30 !important;
+}
+
+.custom-navbar .dropdown-toggle {
+  color: #243447 !important;
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+
+.custom-navbar .dropdown-item {
+  color: #243447 !important;
+  font-size: 1rem;
+}
+
+.custom-navbar .navbar-toggler {
+  border-color: #243447;
+}
+
+.custom-navbar .dropdown-toggle::after {
+    content: '' !important;
+    display: inline-block !important;
+    width: 10px;
+    height: 10px;
+    border-right: 2px solid #243447;
+    border-bottom: 2px solid #243447;
+    border-left: none;
+    border-top: none;
+    transform: rotate(45deg);
+    margin-left: 8px;
+    margin-bottom: 3px;
+    vertical-align: middle;
+    position: relative;
+    top: -2px;
+    transition: transform 0.2s ease;
+  }
+  
+  /* Rotate up when open */
+  /* .custom-navbar .nav-item.dropdown.show > .dropdown-toggle::after {
+    transform: rotate(225deg);
+    top: 2px;
+  }
+   */
+  .custom-navbar .dropdown-toggle::before {
+    display: none !important;
+  }
+
+/* ── Desktop only ── */
+@media (min-width: 992px) {
+  .custom-navbar .nav-item.dropdown:hover > .dropdown-toggle {
+    background-color: #d6eefe !important;
+    color: #0d6efd !important;
+    border-radius: 6px;
+  }
+
+  .custom-navbar .dropdown-menu {
+    background-color: #DAE8FE !important;
+    border: none;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    margin-top: 7px !important;
+  }
+
+  .custom-navbar .dropdown-item:hover,
+  .custom-navbar .dropdown-item:focus {
+    background-color: #EEF6FE !important;
+    color: #243447 !important;
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+/* ── Mobile only ── */
+@media (max-width: 991.98px) {
+  .custom-navbar .navbar-collapse {
+    background-color: #88c0f9;
+    padding: 0.5rem 0.5rem 1rem;
   }
-  to {
-    transform: rotate(360deg);
+
+  .custom-navbar .nav-link,
+  .custom-navbar .dropdown-toggle {
+    font-size: 1.15rem;
+    padding: 0.85rem 0.75rem !important;
+    border-bottom: 1px solid rgba(36, 52, 71, 0.15);
+  }
+
+  /* Blend dropdown into navbar — no separate box */
+  .custom-navbar .dropdown-menu {
+    background-color: transparent !important;
+    box-shadow: none !important;
+    border: none !important;
+    padding-left: 1rem;
+    margin-top: 0 !important;
+  }
+
+  /* No hover highlight on mobile items */
+  .custom-navbar .dropdown-item:hover,
+  .custom-navbar .dropdown-item:focus {
+    background-color: transparent !important;
+    color: #243447 !important;
+  }
+
+  /* No highlight on open toggle */
+  .custom-navbar .nav-item.dropdown.show > .dropdown-toggle {
+    background-color: transparent !important;
+    color: #243447 !important;
   }
 }
