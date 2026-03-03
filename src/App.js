@@ -10,7 +10,6 @@ function App() {
         <NavbarComponent/>
         <Hero/>
         <Footer/>
-        <Footer/>
     </div>
   );
 }
