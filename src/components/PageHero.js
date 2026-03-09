@@ -52,4 +52,4 @@ export default function PageHero({ title, subtitle }) {
       </div>
     </div>
   );
-}
+}// page hero v1
