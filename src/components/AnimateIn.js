@@ -38,4 +38,4 @@ export default function AnimateIn({
       {children}
     </Tag>
   );
-}
+}// animate in v1
