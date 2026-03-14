@@ -388,4 +388,4 @@ export const TEACHER_GUIDES = [
   { label: "Writing process reflection prompts", href: "/docs/writing-process-reflection-prompts" },
   { label: "How to use AI to explore the writing process", href: "/docs/how-to-use-ai-with-pf" },
   { label: "I have a large class. How can I use Process Feedback?", href: "/docs/i-have-a-large-class" },
-];
+];// constants v1
