@@ -30,7 +30,7 @@ const useCounter = (target, duration = 2000) => {
 const Hero = () => {
   const countries = useCounter(100)
   const institutions = useCounter(500)
-  const users = useCounter(50000)
+  const users = useCounter(50)
 
   return (
     <>
@@ -125,7 +125,7 @@ const Hero = () => {
 
             <Col md={4}>
               <div className="stat-card">
-                <div className="stat-number">{users.toLocaleString()}+</div>
+                <div className="stat-number">{users.toLocaleString()}k+</div>
                 <div className="stat-label">Active Users</div>
                 <div>Have reviewed their writing process</div>
               </div>
