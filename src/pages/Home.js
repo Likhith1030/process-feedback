@@ -331,4 +331,4 @@ export default function Home() {
       <SeeItInAction />
     </>
   );
-}
+}// home hero v1
