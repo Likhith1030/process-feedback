@@ -334,3 +334,4 @@ export default function Home() {
 }// home hero v1
 // home stats v1
 // tool cards v1
+// faq v1
