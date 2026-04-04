@@ -161,4 +161,4 @@ export default function Research() {
       </div>
     </>
   );
-}
+}// research v1
