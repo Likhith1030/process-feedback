@@ -110,4 +110,4 @@ export default function Team() {
       </div>
     </>
   );
-}
+}// team v1
