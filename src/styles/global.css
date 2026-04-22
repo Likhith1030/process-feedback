@@ -601,3 +601,4 @@ h3 { font-size: 20px; font-weight: 600; line-height: 1.4; margin-bottom: 0.25em;
   margin: 0 auto;
 }
 @media (min-width: 768px) { .pf-reveal-card { padding: 64px 32px 32px; } }/* brand tokens v1 */
+/* button axis fix */
