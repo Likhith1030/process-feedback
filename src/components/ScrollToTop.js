@@ -8,3 +8,4 @@ export default function ScrollToTop() {
   }, [pathname]);
   return null;
 }
+// scroll to top v1
