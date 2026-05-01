@@ -402,3 +402,4 @@ export default function Navbar() {
   );
 }// navbar v1
 // mobile nav v1
+// navbar size fix
