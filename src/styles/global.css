@@ -96,8 +96,8 @@ html[data-theme="dark"] {
 
   /* Teacher theme dark – flat, no gradient */
   --color-teacher-from:    #0d1a12;
-  --color-green-card-from: #0d1a12;
-  --color-green-card-to:   #0d1a12;
+  --color-green-card-from: #1a3a26;
+  --color-green-card-to:   #1a3a26;
   --color-green-dark:      #56d364;
   --color-green-mid:       #3fb950;
   --color-green-border:    #238636;
@@ -106,8 +106,8 @@ html[data-theme="dark"] {
 
   /* Student theme dark – flat, no gradient */
   --color-student-from:    #0d1117;
-  --color-blue-card-from:  #0d1525;
-  --color-blue-card-to:    #0d1525;
+  --color-blue-card-from:  #162a45;
+  --color-blue-card-to:    #162a45;
   --color-blue-dark:       #79c0ff;
   --color-blue-mid:        #58a6ff;
   --color-blue-border:     #1f6feb;
@@ -129,7 +129,7 @@ html[data-theme="dark"] {
   --color-stat-card-bg:       #161b22;
   --color-stat-num:           #58a6ff;
   --color-stat-label:         #ffffff;
-  --color-stat-desc:          #8b949e;
+  --color-stat-desc:          #ffffff;
   --color-teacher-section-bg: #0d1a12;
   --color-student-section-bg: #0d1525;
   --color-faq-section-bg:     #0d1117;
@@ -137,7 +137,7 @@ html[data-theme="dark"] {
   --color-team-current-bg:    #0d1525;
   --color-team-alumni-bg:     #0d1a12;
   --color-team-ack-bg:        #0d1117;
-  --color-team-ack-text:      #8b949e;
+  --color-team-ack-text:      #ffffff;
   --color-contact-email-bg:   #0d1117;
   --color-contact-form-bg:    #0d1117;
   --color-contact-form-card:  #161b22;
@@ -153,7 +153,7 @@ html[data-theme="dark"] {
   --color-mob-link-color:     #58a6ff;
 
   /* Footer dark */
-  --color-footer-text:        #8b949e;
+  --color-footer-text:        #ffffff;
   --color-footer-link-hover:  #58a6ff;
 
   /* Form dark */
@@ -161,7 +161,7 @@ html[data-theme="dark"] {
   --color-input-text:         #ffffff;
   --color-input-border:       #30363d;
   --color-label-text:         #ffffff;
-  --color-muted-text:         #8b949e;
+  --color-muted-text:         #ffffff;
 }
 
 /* ── Base Reset ────────────────────────────────────────────── */
@@ -765,4 +765,10 @@ html[data-theme="dark"] .pf-paper-read-btn {
   background: var(--color-green-btn-bg) !important;
   color: var(--color-green-dark) !important;
   border-color: var(--color-green-border) !important;
+}
+
+
+/* ── DARK MODE: force all text white ───────────────────────── */
+html[data-theme="dark"] *:not(svg):not(path):not(line):not(circle):not(rect):not(polyline) {
+  color: #ffffff !important;
 }
