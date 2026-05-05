@@ -772,3 +772,95 @@ html[data-theme="dark"] .pf-paper-read-btn {
 html[data-theme="dark"] *:not(svg):not(path):not(line):not(circle):not(rect):not(polyline) {
   color: #ffffff !important;
 }
+
+/* ── Print Styles ───────────────────────────────────────────── */
+@media print {
+  /* Force light mode colors for print */
+  html, html[data-theme="dark"] {
+    --color-body-bg: #ffffff;
+    --color-body-text: #000000;
+  }
+
+  /* Reset all forced dark-mode white text */
+  html[data-theme="dark"] *:not(svg):not(path):not(line):not(circle):not(rect):not(polyline) {
+    color: inherit !important;
+  }
+
+  * {
+    background: transparent !important;
+    color: #000 !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  /* Hide non-content elements */
+  .pf-nav,
+  .pf-hamburger,
+  .pf-theme-toggle,
+  .pf-mobile-menu,
+  .pf-footer,
+  .pf-btn,
+  .pf-card-btn,
+  .pf-social-row,
+  .pf-social-icon {
+    display: none !important;
+  }
+
+  /* Remove sticky positioning */
+  .pf-nav { position: static !important; }
+
+  /* Undo the translateY on stat cards that causes blank space */
+  [style*="translateY"] {
+    transform: none !important;
+  }
+
+  /* Remove animations */
+  .pf-animate {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+
+  /* Prevent orphaned headings */
+  h1, h2, h3, h4, h5, h6 {
+    page-break-after: avoid;
+    break-after: avoid;
+  }
+
+  /* Keep cards and list items together */
+  .pf-tool-card,
+  .pf-team-card,
+  .pf-research-card,
+  .pf-faq-item {
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+
+  /* Remove padding/margin that causes blank pages */
+  body { margin: 0 !important; padding: 0 !important; }
+  .pf-section, .pf-section-wide {
+    padding: 16px !important;
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+  main { padding: 0 !important; }
+
+  /* Grids to single column for print */
+  .pf-tool-grid { grid-template-columns: repeat(2, 1fr) !important; gap: 12px !important; }
+  .pf-team-grid { grid-template-columns: repeat(2, 1fr) !important; }
+
+  /* Show FAQ panels when printing */
+  .pf-faq-panel { display: block !important; }
+
+  /* Links: show URLs */
+  a[href^="http"]::after {
+    content: " (" attr(href) ")";
+    font-size: 11px;
+    color: #555 !important;
+  }
+
+  /* Avoid blank page at end */
+  html, body { height: auto !important; overflow: visible !important; }
+}
