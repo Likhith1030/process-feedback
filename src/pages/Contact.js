@@ -43,22 +43,22 @@ function validate(form) {
 
 // ── Shared field styles ───────────────────────────────────────
 const baseInput = {
-  border: "2px solid #e5e7eb",
+  border: "2px solid var(--color-input-border)",
   padding: "9px 14px",
   borderRadius: 10,
   fontSize: 15,
-  background: "#fff",
+  background: "var(--color-input-bg)",
   outline: "none",
   width: "100%",
   boxSizing: "border-box",
   fontFamily: "inherit",
-  color: "#213547",
+  color: "var(--color-input-text)",
   transition: "border-color 0.2s",
 };
 
 const labelStyle = {
   fontWeight: 500,
-  color: "#374151",
+  color: "var(--color-label-text)",
   marginBottom: 6,
   fontSize: 15,
   display: "block",
@@ -119,9 +119,9 @@ function SendEmailSection() {
   };
 
   return (
-    <div style={{ background: "#fff", width: "100%" }}>
+    <div style={{ background: "var(--color-contact-email-bg)", width: "100%" }}>
       <section className="pf-section">
-        <h2 style={{ color: "#003066", fontWeight: 700, marginTop: 0 }}>Send us an email</h2>
+        <h2 style={{ color: "var(--color-research-extra-heading)", fontWeight: 700, marginTop: 0 }}>Send us an email</h2>
         <div style={{ display: "flex", flexWrap: "wrap", gap: 40, marginTop: 24, alignItems: "center" }}>
           <div style={{ flex: 1, minWidth: 280 }}>
             <p style={{ fontSize: 15, lineHeight: 1.7, color: "#374151" }}>
@@ -270,7 +270,7 @@ function ContactForm() {
     : "#e5e7eb";
 
   return (
-    <div style={{ background: "#eff6ff", width: "100%" }}>
+    <div style={{ background: "var(--color-contact-form-bg)", width: "100%" }}>
       <section className="pf-section" style={{ paddingBottom: 48 }}>
         <h2 style={{ marginTop: 0, marginBottom: 8 }}>Send us a message</h2>
         <p style={{ textAlign: "center", maxWidth: 560, margin: "0 auto 20px", fontSize: 14, color: "#374151", lineHeight: 1.6 }}>
@@ -292,7 +292,7 @@ function ContactForm() {
           {/* Form card */}
           <div style={{ flex: 1, minWidth: 260 }}>
           <div style={{
-            background: "linear-gradient(to bottom right, #eff6ff, #fff, #eff6ff)",
+            background: "var(--color-contact-form-card)",
             border: "1px solid #e5e7eb", borderRadius: 20, padding: "16px 20px",
             boxShadow: "0 12px 24px -5px rgba(0,0,0,.08)",
           }}>
@@ -376,6 +376,4 @@ export default function Contact() {
     </>
   );
 }
-// contact v1
-// contact validation v1
-// emailjs v1
+

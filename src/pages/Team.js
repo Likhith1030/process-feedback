@@ -38,7 +38,7 @@ export default function Team() {
       <PageHero title="Process Feedback's Team" />
 
       {/* ── Current team ──────────────────────────────────── */}
-      <div style={{ background: "#f2f8ff", width: "100%" }}>
+      <div style={{ background: "var(--color-team-current-bg)", width: "100%" }}>
         <section className="pf-section">
           <AnimateIn>
             <h2 style={{
@@ -60,7 +60,7 @@ export default function Team() {
       </div>
 
       {/* ── Alumni ────────────────────────────────────────── */}
-      <div style={{ background: "#f0fdf4", width: "100%" }}>
+      <div style={{ background: "var(--color-team-alumni-bg)", width: "100%" }}>
         <section className="pf-section">
           <AnimateIn>
             <h2 style={{ color: "#14532d", fontWeight: 700 }}>
@@ -81,13 +81,13 @@ export default function Team() {
       </div>
 
       {/* ── Acknowledgements ──────────────────────────────── */}
-      <div style={{ background: "#fff", width: "100%" }}>
+      <div style={{ background: "var(--color-team-ack-bg)", width: "100%" }}>
         <section className="pf-section">
           <AnimateIn>
             <h2 style={{ fontWeight: 700 }}>Acknowledgements</h2>
           </AnimateIn>
           <AnimateIn>
-            <div style={{ maxWidth: 896, margin: "24px auto 0", fontSize: 15, lineHeight: 1.7, color: "#374151" }}>
+            <div style={{ maxWidth: 896, margin: "24px auto 0", fontSize: 15, lineHeight: 1.7, color: "var(--color-team-ack-text)" }}>
               <p>
                 A heartfelt thanks to <strong>Judge0</strong> for providing us with free access to their
                 APIs for about nine months in 2023. We no longer use Judge0 as our primary technology

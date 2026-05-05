@@ -2,233 +2,41 @@ import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { NAV_ITEMS } from "../data/Constants";
 import { ChevronDownIcon, HamburgerIcon, CloseIcon } from "./Icons";
-import logo from "../logo.svg"
+import { useTheme } from "../context/ThemeContext";
+import logo from "../logo.svg";
 
-// ── Navbar-scoped styles ──────────────────────────────────────
-const NAV_STYLES = `
-  .pf-nav {
-    position: sticky;
-    top: 0;
-    z-index: 50;
-    width: 100%;
-    height: 60px;
-    background: #88c0f9;
-    display: flex;
-    align-items: center;
-  }
-  .pf-nav-inner {
-    max-width: 1280px;
-    margin: 0 auto;
-    width: 100%;
-    padding: 0 24px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 8px;
-  }
+function SunIcon() {
+  return (
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+      stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <circle cx="12" cy="12" r="5"/>
+      <line x1="12" y1="1" x2="12" y2="3"/>
+      <line x1="12" y1="21" x2="12" y2="23"/>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+      <line x1="1" y1="12" x2="3" y2="12"/>
+      <line x1="21" y1="12" x2="23" y2="12"/>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+    </svg>
+  );
+}
 
-  /* Logo */
-  .pf-logo-wrap {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    flex-shrink: 0;
-    text-decoration: none !important;
-  }
-  .pf-logo-img  { height: 32px; width: auto; object-fit: contain; }
-  .pf-logo-sub  { margin-top: 2px; font-size: 11px; white-space: nowrap; color: #003f81; }
-
-  /* Desktop nav container */
-  .pf-desk-nav {
-    display: none;
-    align-items: center;
-    gap: 2px;
-    height: 100%;
-  }
-  @media (min-width: 1024px) { .pf-desk-nav { display: flex; } }
-
-  /* Nav link / button — shared base */
-  .pf-nav-link {
-    height: 34px;
-    padding: 0 10px;
-    display: inline-flex;
-    align-items: center;
-    border-radius: 6px;
-    color: #334155;
-    font-weight: 500;
-    font-size: 14px;
-    white-space: nowrap;
-    gap: 3px;
-    cursor: pointer;
-    background: transparent;
-    border: none;
-    text-decoration: none !important;
-    transition: background 0.15s, color 0.15s;
-    font-family: inherit;
-  }
-  /* Only show highlight on hover — no permanent active style */
-  .pf-nav-link:hover {
-    background: #bfdbfe;
-    color: #1d4ed8;
-    text-decoration: none !important;
-  }
-
-  /* Dropdown wrapper */
-  .pf-dropdown-wrap {
-    position: relative;
-    height: 60px;
-    display: flex;
-    align-items: center;
-  }
-
-  /* Dropdown panel — WHITE background, matches original */
-  .pf-dropdown-menu {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    padding-top: 6px;
-    z-index: 60;
-    opacity: 0;
-    visibility: hidden;
-    transform: translateY(4px);
-    transition: opacity 0.18s, transform 0.18s, visibility 0.18s;
-    min-width: 220px;
-  }
-  .pf-dropdown-menu.open {
-    opacity: 1;
-    visibility: visible;
-    transform: translateY(0);
-  }
-  .pf-dropdown-list {
-    list-style: none;
-    padding: 6px;
-    margin: 0;
-    background: #dbeafe;
-    border-radius: 12px;
-    box-shadow: 0 8px 24px rgba(0,0,0,0.12), 0 2px 6px rgba(0,0,0,0.06);
-    border: 1px solid rgba(0,0,0,0.06);
-  }
-
-  /* Dropdown items — NO underline, hover bg only */
-  .pf-dropdown-item {
-    display: block;
-    padding: 9px 12px;
-    color: #334155;
-    border-radius: 7px;
-    font-size: 14px;
-    text-decoration: none !important;
-    transition: background 0.12s, color 0.12s;
-  }
-  .pf-dropdown-item:hover {
-    background: #eff6ff;
-    color: #1d4ed8;
-    text-decoration: none !important;
-  }
-
-  /* Hamburger */
-  .pf-hamburger {
-    display: none;
-    align-items: center;
-    justify-content: center;
-    padding: 8px;
-    border-radius: 6px;
-    background: transparent;
-    border: none;
-    color: #334155;
-    cursor: pointer;
-    margin-left: auto;
-    transition: background 0.15s;
-    font-family: inherit;
-  }
-  .pf-hamburger:hover { background: #bfdbfe; }
-  @media (max-width: 1023px) { .pf-hamburger { display: flex; } }
-
-  /* Mobile menu panel */
-  .pf-mobile-menu {
-    position: absolute;
-    top: 60px;
-    left: 0;
-    right: 0;
-    z-index: 50;
-    background: #c3e0fd;
-    border-top: 1px solid #bfdbfe;
-    max-height: calc(100vh - 60px);
-    overflow-y: auto;
-    box-shadow: 0 8px 16px rgba(0,0,0,0.1);
-  }
-  .pf-mobile-menu.hidden { display: none; }
-  @media (min-width: 1024px) { .pf-mobile-menu { display: none !important; } }
-
-  /* Mobile Home link */
-  .pf-mob-link {
-    display: block;
-    padding: 12px 20px;
-    font-weight: 500;
-    color: #1d4ed8;
-    border-radius: 8px;
-    margin: 0 12px;
-    transition: background 0.15s;
-    text-decoration: none !important;
-  }
-  .pf-mob-link:hover { background: #eff6ff; text-decoration: none !important; }
-
-  /* Mobile accordion section */
-  .pf-mob-section { padding: 0 12px; margin-top: 2px; }
-  .pf-mob-trigger {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 12px 20px;
-    font-weight: 500;
-    color: #334155;
-    background: transparent;
-    border: none;
-    border-radius: 8px;
-    font-size: 15px;
-    cursor: pointer;
-    transition: background 0.15s;
-    font-family: inherit;
-    text-decoration: none !important;
-  }
-  .pf-mob-trigger:hover { background: #bfdbfe; }
-  .pf-mob-trigger.open  { background: #bfdbfe; color: #1d4ed8; }
-
-  .pf-mob-arrow { transition: transform 0.2s; }
-  .pf-mob-arrow.open { transform: rotate(180deg); }
-
-  .pf-mob-panel {
-    overflow: hidden;
-    max-height: 0;
-    opacity: 0;
-    transition: max-height 0.25s ease-out, opacity 0.25s ease-out;
-  }
-  .pf-mob-panel.open { max-height: 400px; opacity: 1; }
-
-  /* Mobile sub-links — NO underline */
-  .pf-mob-sub {
-    display: block;
-    padding: 8px 20px;
-    color: #334155;
-    border-radius: 8px;
-    font-size: 14px;
-    margin: 0 4px 0 28px;
-    transition: background 0.15s;
-    text-decoration: none !important;
-  }
-  .pf-mob-sub:hover {
-    background: #eff6ff;
-    color: #1d4ed8;
-    text-decoration: none !important;
-  }
-`;
+function MoonIcon() {
+  return (
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+      stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+    </svg>
+  );
+}
 
 export default function Navbar() {
   const [mobileOpen, setMobileOpen]               = useState(false);
   const [openDropdown, setOpenDropdown]           = useState(null);
   const [openMobileSection, setOpenMobileSection] = useState(null);
+  const { dark, toggle } = useTheme();
 
-  // Not used for permanent active style — kept only for potential future use
   useLocation();
 
   const toggleMobileSection = (label) =>
@@ -243,8 +51,6 @@ export default function Navbar() {
 
   return (
     <nav className="pf-nav" aria-label="Primary">
-      <style>{NAV_STYLES}</style>
-
       <div className="pf-nav-inner">
 
         {/* ── Logo ──────────────────────────────────────────── */}
@@ -255,27 +61,20 @@ export default function Navbar() {
             className="pf-logo-img"
             onError={(e) => { e.target.style.display = "none"; }}
           />
-          <span className="pf-logo-sub">Course Project at UMSL.
-</span>
+          <span className="pf-logo-sub">Course Project at UMSL.</span>
         </Link>
 
         {/* ── Desktop nav ───────────────────────────────────── */}
         <div className="pf-desk-nav">
           {NAV_ITEMS.map((item) => {
-            // Simple link (Home)
             if (!item.items) {
               return (
-                <Link
-                  key={item.label}
-                  to={item.href}
-                  className="pf-nav-link"
-                >
+                <Link key={item.label} to={item.href} className="pf-nav-link">
                   {item.label}
                 </Link>
               );
             }
 
-            // Dropdown trigger + panel
             return (
               <div
                 key={item.label}
@@ -324,16 +123,28 @@ export default function Navbar() {
           })}
         </div>
 
-        {/* ── Hamburger ─────────────────────────────────────── */}
-        <button
-          className="pf-hamburger"
-          onClick={() => setMobileOpen((v) => !v)}
-          aria-label={mobileOpen ? "Close navigation" : "Open navigation"}
-          aria-expanded={mobileOpen}
-          aria-controls="mobile-menu"
-        >
-          {mobileOpen ? <CloseIcon /> : <HamburgerIcon />}
-        </button>
+        {/* ── Right side: toggle + hamburger ────────────────── */}
+        <div style={{ display: "flex", alignItems: "center", gap: 8, marginLeft: "auto" }}>
+          <button
+            className="pf-theme-toggle"
+            onClick={toggle}
+            aria-label={dark ? "Switch to light mode" : "Switch to dark mode"}
+            title={dark ? "Light mode" : "Dark mode"}
+          >
+            {dark ? <SunIcon /> : <MoonIcon />}
+          </button>
+
+          <button
+            className="pf-hamburger"
+            onClick={() => setMobileOpen((v) => !v)}
+            aria-label={mobileOpen ? "Close navigation" : "Open navigation"}
+            aria-expanded={mobileOpen}
+            aria-controls="mobile-menu"
+            style={{ margin: 0 }}
+          >
+            {mobileOpen ? <CloseIcon /> : <HamburgerIcon />}
+          </button>
+        </div>
       </div>
 
       {/* ── Mobile menu ───────────────────────────────────── */}
@@ -400,6 +211,4 @@ export default function Navbar() {
       </div>
     </nav>
   );
-}// navbar v1
-// mobile nav v1
-// navbar size fix
+}

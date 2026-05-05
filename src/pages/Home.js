@@ -9,7 +9,6 @@ import {
   TEACHER_TOOLS, STUDENT_TOOLS, REVEAL_POINTS, FAQS,
 } from "../data/Constants";
 
-// ── Tool Card (used for both Teachers and Students) ───────────
 function ToolCard({ title, points, btnLabel, href, variant }) {
   const isGreen = variant === "green";
   return (
@@ -37,13 +36,12 @@ function ToolCard({ title, points, btnLabel, href, variant }) {
   );
 }
 
-// ── FAQ Accordion ─────────────────────────────────────────────
 function FAQ() {
   const [openIndex, setOpenIndex] = useState(null);
   const toggle = (i) => setOpenIndex((prev) => (prev === i ? null : i));
 
   return (
-    <div style={{ background: "#edf1fa", width: "100%" }}>
+    <div style={{ background: "var(--color-faq-section-bg)", width: "100%" }}>
       <section className="pf-section">
         <AnimateIn>
           <h2 style={{ fontWeight: 700, marginBottom: 24 }}>Frequently Asked Questions</h2>
@@ -80,7 +78,6 @@ function FAQ() {
   );
 }
 
-// ── Reveal Writing Process ────────────────────────────────────
 function RevealWritingProcess() {
   return (
     <div style={{ background: "var(--color-reveal-bg)", padding: "8px" }}>
@@ -98,7 +95,7 @@ function RevealWritingProcess() {
                     borderRadius: "9999px", background: "var(--color-reveal-dot)",
                     display: "inline-block",
                   }} />
-                  <span style={{ color: "#111827", lineHeight: 1.7, fontSize: 15 }}>{text}</span>
+                  <span style={{ color: "var(--color-body-text)", lineHeight: 1.7, fontSize: 15 }}>{text}</span>
                 </li>
               ))}
             </ul>
@@ -109,22 +106,19 @@ function RevealWritingProcess() {
   );
 }
 
-// ── See It In Action ──────────────────────────────────────────
 function SeeItInAction() {
   return (
-    <div style={{ background: "#edf1fa", width: "100%" }}>
+    <div style={{ background: "var(--color-action-section-bg)", width: "100%" }}>
       <section className="pf-section">
         <AnimateIn>
           <div className="pf-action-card">
             <div className="pf-action-row">
-              {/* Image */}
               <img
                 src="https://processfeedback.org/_astro/teachers.BMv3acBb_ZEWi0j.webp"
                 alt="Group of teachers discussing with laptop on table."
                 className="pf-action-img"
                 onError={(e) => { e.target.style.display = "none"; }}
               />
-              {/* Text + buttons */}
               <div style={{ display: "flex", flexDirection: "column", alignItems: "center", marginTop: 24 }}>
                 <div style={{ padding: "0 16px" }}>
                   <h2 style={{ textAlign: "left", marginTop: 0 }}>See It in Action</h2>
@@ -142,10 +136,7 @@ function SeeItInAction() {
                   >
                     View Sample Student Report <DocReportIcon />
                   </a>
-                  <a
-                    href="/gdocs"
-                    className="pf-btn"
-                  >
+                  <a href="/gdocs" className="pf-btn">
                     Try It in Google Docs <ChromeIcon />
                   </a>
                 </div>
@@ -158,12 +149,11 @@ function SeeItInAction() {
   );
 }
 
-// ── Main Home Page ────────────────────────────────────────────
 export default function Home() {
   return (
     <>
       {/* ── Hero ──────────────────────────────────────────── */}
-      <div style={{ background: "linear-gradient(to bottom, #95cffa, #e7f5fe)", width: "100%" }}>
+      <div style={{ background: "var(--color-hero-bg)", width: "100%" }}>
         <div style={{ display: "flex", flexDirection: "column", alignItems: "center", paddingBottom: 40 }}>
           <h1 style={{
             textAlign: "center",
@@ -178,7 +168,6 @@ export default function Home() {
             <span style={{ whiteSpace: "nowrap" }}>at&nbsp;UMSL.</span>
           </h1>
 
-          {/* Subtitle */}
           <p style={{
             fontSize: "1rem", maxWidth: 896, textAlign: "center",
             margin: "16px auto 0", padding: "0 16px", lineHeight: 1.6,
@@ -188,7 +177,6 @@ export default function Home() {
             how the learning process can be improved.
           </p>
 
-          {/* CTA Buttons */}
           <div style={{ display: "flex", flexWrap: "wrap", gap: 16, alignItems: "center", justifyContent: "center", margin: "40px 0 20px" }}>
             <a
               href="https://app.processfeedback.org/gdocs/g_17GWSvODr0wQtxPBXeplzkoqWw3xv4cOL_9ZbWmIpXOU_d6351d?report=true&token=4d4453da-f306-4e6f-9bd9-4223d9d145cb"
@@ -203,20 +191,18 @@ export default function Home() {
             </a>
           </div>
 
-          {/* Stars */}
           <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 4 }}>
             {[1, 2, 3, 4, 5].map((n) => <StarIcon key={n} />)}
           </div>
-          <p style={{ textAlign: "center", marginTop: 8, color: "#2563eb", fontSize: 14 }}>
+          <p style={{ textAlign: "center", marginTop: 8, color: "var(--color-brand-blue)", fontSize: 14 }}>
             Loved by students and teachers!
           </p>
 
-          {/* Feature bullet lists */}
           <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "center", gap: 32, margin: "40px 16px", paddingBottom: 0 }}>
             <ul style={{ listStyle: "none", padding: 0, margin: 0 }}>
               {HERO_BULLETS_LEFT.map((text) => (
                 <li key={text} style={{ display: "flex", alignItems: "flex-start", gap: 12, fontSize: 15, margin: "16px 0", maxWidth: 300 }}>
-                  <span style={{ color: "#6EB3FA", flexShrink: 0, marginTop: 2 }}><ArrowRightIcon /></span>
+                  <span style={{ color: "var(--color-brand-blue)", flexShrink: 0, marginTop: 2 }}><ArrowRightIcon /></span>
                   {text}
                 </li>
               ))}
@@ -224,32 +210,21 @@ export default function Home() {
             <ul style={{ listStyle: "none", padding: 0, margin: 0 }}>
               {HERO_BULLETS_RIGHT.map((text) => (
                 <li key={text} style={{ display: "flex", alignItems: "flex-start", gap: 12, fontSize: 15, margin: "16px 0", maxWidth: 300 }}>
-                  <span style={{ color: "#6EB3FA", flexShrink: 0, marginTop: 2 }}><ArrowRightIcon /></span>
+                  <span style={{ color: "var(--color-brand-blue)", flexShrink: 0, marginTop: 2 }}><ArrowRightIcon /></span>
                   {text}
                 </li>
               ))}
             </ul>
           </div>
-
         </div>
       </div>
 
-      {/* ── Stat cards on solid #EDF1FA background ────────── */}
-      <div style={{
-        background: "#EDF1FA",
-        width: "100%",
-        paddingBottom: 0,
-      }}>
-        <div style={{
-          display: "flex",
-          flexWrap: "wrap",
-          justifyContent: "center",
-          gap: 24,
-          padding: "0 16px",
-        }}>
+      {/* ── Stat cards ────────────────────────────────────── */}
+      <div style={{ background: "var(--color-stat-section-bg)", width: "100%", paddingBottom: 0 }}>
+        <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "center", gap: 24, padding: "0 16px" }}>
           {STAT_CARDS.map((card) => (
             <div key={card.label} style={{
-              background: "#fff",
+              background: "var(--color-stat-card-bg)",
               borderRadius: 24,
               boxShadow: "0 25px 50px -12px rgba(0,0,0,0.25)",
               padding: 24,
@@ -260,23 +235,23 @@ export default function Home() {
               width: "clamp(200px, 22%, 320px)",
               transform: "translateY(-33%)",
             }}>
-              <p style={{ fontSize: "2.25rem", color: "#60a5fa", fontWeight: 700, margin: 0 }}>{card.num}</p>
-              <p style={{ fontSize: "1.125rem", fontWeight: 500, color: "#000", margin: 0 }}>{card.label}</p>
-              <p style={{ fontSize: 14, color: "#374151", textAlign: "center", margin: 0 }}>{card.desc}</p>
+              <p style={{ fontSize: "2.25rem", color: "var(--color-stat-num)", fontWeight: 700, margin: 0 }}>{card.num}</p>
+              <p style={{ fontSize: "1.125rem", fontWeight: 500, color: "var(--color-stat-label)", margin: 0 }}>{card.label}</p>
+              <p style={{ fontSize: 14, color: "var(--color-stat-desc)", textAlign: "center", margin: 0 }}>{card.desc}</p>
             </div>
           ))}
         </div>
       </div>
 
       {/* ── Our Tools – Teachers ──────────────────────────── */}
-      <div style={{ background: "#f3fbf4", width: "100%" }}>
+      <div style={{ background: "var(--color-teacher-section-bg)", width: "100%" }}>
         <section className="pf-section" style={{ paddingTop: 80 }}>
           <AnimateIn><h2>Our Tools for Teachers</h2></AnimateIn>
           <AnimateIn style={{ maxWidth: "80%", margin: "20px auto 0", textAlign: "left" }}>
             <p>
               Ask students to submit their writing process reports or, instead, have them complete an
               additional self-reflection assignment. For large classes, our{" "}
-              <a href="/docs/i-have-a-large-class" style={{ color: "#2563eb", textDecoration: "underline" }}>
+              <a href="/docs/i-have-a-large-class" style={{ color: "var(--color-brand-blue)", textDecoration: "underline" }}>
                 teacher dashboard
               </a>{" "}
               provides a summary of all your students' writing processes in one place.
@@ -284,16 +259,14 @@ export default function Home() {
           </AnimateIn>
           <AnimateIn>
             <div className="pf-tool-grid">
-              {TEACHER_TOOLS.map((t) => (
-                <ToolCard key={t.title} {...t} variant="green" />
-              ))}
+              {TEACHER_TOOLS.map((t) => <ToolCard key={t.title} {...t} variant="green" />)}
             </div>
           </AnimateIn>
           <AnimateIn style={{ maxWidth: "80%", margin: "32px auto 0", textAlign: "center" }}>
             <p>
               <strong>Not sure where to start?</strong> Learn how to try Process Feedback in a class
               by reading our{" "}
-              <a href="/docs/teachers" style={{ color: "#2563eb", textDecoration: "underline" }}>
+              <a href="/docs/teachers" style={{ color: "var(--color-brand-blue)", textDecoration: "underline" }}>
                 <strong>Teacher Guides</strong>
               </a>.
             </p>
@@ -302,7 +275,7 @@ export default function Home() {
       </div>
 
       {/* ── Our Tools – Students ──────────────────────────── */}
-      <div style={{ background: "#f9faff", width: "100%" }}>
+      <div style={{ background: "var(--color-student-section-bg)", width: "100%" }}>
         <section className="pf-section">
           <AnimateIn><h2>Our Tools for Students</h2></AnimateIn>
           <AnimateIn style={{ maxWidth: "80%", margin: "20px auto 0", textAlign: "left" }}>
@@ -313,25 +286,15 @@ export default function Home() {
           </AnimateIn>
           <AnimateIn>
             <div className="pf-tool-grid">
-              {STUDENT_TOOLS.map((t) => (
-                <ToolCard key={t.title} {...t} variant="blue" />
-              ))}
+              {STUDENT_TOOLS.map((t) => <ToolCard key={t.title} {...t} variant="blue" />)}
             </div>
           </AnimateIn>
         </section>
       </div>
 
-      {/* ── Reveal Writing Process ────────────────────────── */}
       <RevealWritingProcess />
-
-      {/* ── FAQ ───────────────────────────────────────────── */}
       <FAQ />
-
-      {/* ── See It In Action ──────────────────────────────── */}
       <SeeItInAction />
     </>
   );
-}// home hero v1
-// home stats v1
-// tool cards v1
-// faq v1
+}

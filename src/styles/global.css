@@ -5,7 +5,7 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap');
 
-/* ── CSS Custom Properties ─────────────────────────────────── */
+/* ── Light Mode Tokens ─────────────────────────────────────── */
 :root {
   --color-nav-bg:         #88c0f9;
   --color-nav-mobile-bg:  #c3e0fd;
@@ -13,8 +13,6 @@
   --color-footer-bg:      #88c0f9;
   --color-header-text:    #003f81;
   --color-brand-blue:     #027dff;
-  --color-hero-from:      #95cffa;
-  --color-hero-to:        #e7f5fe;
 
   /* Teacher theme */
   --color-teacher-from:   #f3fbf4;
@@ -36,10 +34,134 @@
   --color-blue-btn-bg:    #b2d6ff;
   --color-blue-btn-border:#d9ebff;
 
-  /* Reveal section */
+  /* Reveal */
   --color-reveal-bg:      #fff6f2;
   --color-reveal-heading: #802800;
   --color-reveal-dot:     #b23f09;
+
+  /* Body */
+  --color-body-bg:        #ffffff;
+  --color-body-text:      #213547;
+
+  /* Section backgrounds */
+  --color-hero-bg:            linear-gradient(to bottom, #95cffa, #e7f5fe);
+  --color-stat-section-bg:    #edf1fa;
+  --color-stat-card-bg:       #ffffff;
+  --color-stat-num:           #60a5fa;
+  --color-stat-label:         #000000;
+  --color-stat-desc:          #374151;
+  --color-teacher-section-bg: #f3fbf4;
+  --color-student-section-bg: #f9faff;
+  --color-faq-section-bg:     #edf1fa;
+  --color-action-section-bg:  #edf1fa;
+  --color-team-current-bg:    #f2f8ff;
+  --color-team-alumni-bg:     #f0fdf4;
+  --color-team-ack-bg:        #ffffff;
+  --color-team-ack-text:      #374151;
+  --color-contact-email-bg:   #ffffff;
+  --color-contact-form-bg:    #eff6ff;
+  --color-contact-form-card:  linear-gradient(to bottom right, #eff6ff, #fff, #eff6ff);
+  --color-research-extra-bg:  #f3f4f6;
+  --color-research-extra-heading: #003f81;
+
+  /* Nav */
+  --color-nav-link-text:      #334155;
+  --color-nav-hover-bg:       #bfdbfe;
+  --color-nav-active-text:    #1d4ed8;
+  --color-dropdown-bg:        #dbeafe;
+  --color-dropdown-hover-bg:  #eff6ff;
+  --color-mob-link-color:     #4400ff;
+
+  /* Footer */
+  --color-footer-text:        #1e3a5f;
+  --color-footer-link-hover:  #1d4ed8;
+
+  /* Form */
+  --color-input-bg:           #ffffff;
+  --color-input-text:         #213547;
+  --color-input-border:       #e5e7eb;
+  --color-label-text:         #374151;
+  --color-muted-text:         #374151;
+}
+
+/* ── Dark Mode Tokens ──────────────────────────────────────── */
+html[data-theme="dark"] {
+  /* Nav / Footer */
+  --color-nav-bg:         #0d1117;
+  --color-nav-mobile-bg:  #0d1117;
+  --color-section-blue:   #161b22;
+  --color-footer-bg:      #0d1117;
+  --color-header-text:    #79c0ff;
+  --color-brand-blue:     #58a6ff;
+
+  /* Teacher theme dark – flat, no gradient */
+  --color-teacher-from:    #0d1a12;
+  --color-green-card-from: #0d1a12;
+  --color-green-card-to:   #0d1a12;
+  --color-green-dark:      #56d364;
+  --color-green-mid:       #3fb950;
+  --color-green-border:    #238636;
+  --color-green-btn-bg:    #1a3020;
+  --color-green-btn-border:#2ea043;
+
+  /* Student theme dark – flat, no gradient */
+  --color-student-from:    #0d1117;
+  --color-blue-card-from:  #0d1525;
+  --color-blue-card-to:    #0d1525;
+  --color-blue-dark:       #79c0ff;
+  --color-blue-mid:        #58a6ff;
+  --color-blue-border:     #1f6feb;
+  --color-blue-btn-bg:     #162032;
+  --color-blue-btn-border: #1f6feb;
+
+  /* Reveal dark */
+  --color-reveal-bg:      #160c08;
+  --color-reveal-heading: #ff7b72;
+  --color-reveal-dot:     #f85149;
+
+  /* Body dark */
+  --color-body-bg:        #0d1117;
+  --color-body-text:      #ffffff;
+
+  /* Section backgrounds dark – all flat */
+  --color-hero-bg:            #0d1117;
+  --color-stat-section-bg:    #0d1117;
+  --color-stat-card-bg:       #161b22;
+  --color-stat-num:           #58a6ff;
+  --color-stat-label:         #ffffff;
+  --color-stat-desc:          #8b949e;
+  --color-teacher-section-bg: #0d1a12;
+  --color-student-section-bg: #0d1525;
+  --color-faq-section-bg:     #0d1117;
+  --color-action-section-bg:  #0d1117;
+  --color-team-current-bg:    #0d1525;
+  --color-team-alumni-bg:     #0d1a12;
+  --color-team-ack-bg:        #0d1117;
+  --color-team-ack-text:      #8b949e;
+  --color-contact-email-bg:   #0d1117;
+  --color-contact-form-bg:    #0d1117;
+  --color-contact-form-card:  #161b22;
+  --color-research-extra-bg:  #161b22;
+  --color-research-extra-heading: #79c0ff;
+
+  /* Nav dark */
+  --color-nav-link-text:      #ffffff;
+  --color-nav-hover-bg:       #1f2937;
+  --color-nav-active-text:    #58a6ff;
+  --color-dropdown-bg:        #161b22;
+  --color-dropdown-hover-bg:  #1f2937;
+  --color-mob-link-color:     #58a6ff;
+
+  /* Footer dark */
+  --color-footer-text:        #8b949e;
+  --color-footer-link-hover:  #58a6ff;
+
+  /* Form dark */
+  --color-input-bg:           #161b22;
+  --color-input-text:         #ffffff;
+  --color-input-border:       #30363d;
+  --color-label-text:         #ffffff;
+  --color-muted-text:         #8b949e;
 }
 
 /* ── Base Reset ────────────────────────────────────────────── */
@@ -49,9 +171,10 @@ body {
   font-family: Inter, 'Noto Sans', 'Helvetica Neue', ui-sans-serif, system-ui, sans-serif;
   font-size: 16px;
   line-height: 1.5;
-  color: #213547;
-  background: #fff;
+  color: var(--color-body-text);
+  background: var(--color-body-bg);
   letter-spacing: 0.01em;
+  transition: background 0.2s, color 0.2s;
 }
 ul { list-style: none; margin: 0; padding: 0; }
 a { text-decoration: none; color: inherit; }
@@ -102,7 +225,7 @@ h3 { font-size: 20px; font-weight: 600; line-height: 1.4; margin-bottom: 0.25em;
 }
 .pf-btn:hover { transform: scale(0.96); color: #fff; }
 
-/* Card action button – green variant */
+/* Card action button */
 .pf-card-btn {
   display: inline-flex;
   align-items: center;
@@ -142,7 +265,7 @@ h3 { font-size: 20px; font-weight: 600; line-height: 1.4; margin-bottom: 0.25em;
   transform: translateY(0);
 }
 
-/* ── Stacked Ellipse Hero Decoration ───────────────────────── */
+/* ── Page Hero ─────────────────────────────────────────────── */
 .pf-page-hero {
   position: relative;
   overflow: hidden;
@@ -174,7 +297,7 @@ h3 { font-size: 20px; font-weight: 600; line-height: 1.4; margin-bottom: 0.25em;
   opacity: 0.8;
   margin-top: 16px;
   font-size: 15px;
-  color: #213547;
+  color: var(--color-body-text);
 }
 .pf-ellipse {
   position: absolute;
@@ -192,6 +315,7 @@ h3 { font-size: 20px; font-weight: 600; line-height: 1.4; margin-bottom: 0.25em;
   background: var(--color-nav-bg);
   display: flex;
   align-items: center;
+  transition: background 0.2s;
 }
 .pf-nav-inner {
   max-width: 1280px;
@@ -217,18 +341,18 @@ h3 { font-size: 20px; font-weight: 600; line-height: 1.4; margin-bottom: 0.25em;
   display: inline-flex;
   align-items: center;
   border-radius: 6px;
-  color: #334155;
+  color: var(--color-nav-link-text);
   font-weight: 500;
   font-size: 14px;
-  transition: background 0.15s;
+  transition: background 0.15s, color 0.15s;
   white-space: nowrap;
   gap: 3px;
   cursor: pointer;
   background: transparent;
   border: none;
 }
-.pf-nav-link:hover { background: #bfdbfe; }
-.pf-nav-link.active { background: #bfdbfe; color: #1d4ed8; }
+.pf-nav-link:hover { background: var(--color-nav-hover-bg); color: var(--color-nav-active-text); }
+.pf-nav-link.active { background: var(--color-nav-hover-bg); color: var(--color-nav-active-text); }
 
 .pf-dropdown-wrap { position: relative; height: 60px; display: flex; align-items: center; }
 .pf-dropdown-menu {
@@ -246,20 +370,44 @@ h3 { font-size: 20px; font-weight: 600; line-height: 1.4; margin-bottom: 0.25em;
 .pf-dropdown-list {
   min-width: 220px;
   border-radius: 12px;
-  border: 1px solid #93c5fd;
-  background: #dbeafe;
-  box-shadow: 0 10px 15px -3px rgba(0,0,0,.1);
+  border: 1px solid var(--color-input-border);
+  background: var(--color-dropdown-bg);
+  box-shadow: 0 10px 15px -3px rgba(0,0,0,.15);
   padding: 8px;
 }
 .pf-dropdown-item {
   display: block;
   padding: 8px;
-  color: #334155;
+  color: var(--color-nav-link-text);
   border-radius: 8px;
   font-size: 14px;
-  transition: background 0.15s;
+  transition: background 0.15s, color 0.15s;
 }
-.pf-dropdown-item:hover { background: #eff6ff; color: #1d4ed8; }
+.pf-dropdown-item:hover { background: var(--color-dropdown-hover-bg); color: var(--color-nav-active-text); }
+
+/* Theme toggle button */
+.pf-theme-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 9999px;
+  border: 2px solid rgba(0,0,0,0.15);
+  background: rgba(255,255,255,0.6);
+  color: #003f81;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.2s, border-color 0.2s;
+  flex-shrink: 0;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.15);
+}
+.pf-theme-toggle:hover { background: rgba(255,255,255,0.9); transform: rotate(20deg); }
+html[data-theme="dark"] .pf-theme-toggle {
+  background: #21262d;
+  border-color: #30363d;
+  color: #e6edf3;
+}
+html[data-theme="dark"] .pf-theme-toggle:hover { background: #30363d; }
 
 /* Hamburger button */
 .pf-hamburger {
@@ -270,12 +418,11 @@ h3 { font-size: 20px; font-weight: 600; line-height: 1.4; margin-bottom: 0.25em;
   border-radius: 6px;
   background: transparent;
   border: none;
-  color: #334155;
+  color: var(--color-nav-link-text);
   cursor: pointer;
-  margin-left: auto;
   transition: background 0.15s;
 }
-.pf-hamburger:hover { background: #bfdbfe; }
+.pf-hamburger:hover { background: var(--color-nav-hover-bg); }
 @media (max-width: 1023px) { .pf-hamburger { display: flex; } }
 
 /* Mobile menu */
@@ -286,10 +433,11 @@ h3 { font-size: 20px; font-weight: 600; line-height: 1.4; margin-bottom: 0.25em;
   right: 0;
   z-index: 50;
   background: var(--color-nav-mobile-bg);
-  border-top: 1px solid #bfdbfe;
+  border-top: 1px solid var(--color-input-border);
   max-height: calc(100vh - 60px);
   overflow-y: auto;
-  box-shadow: 0 10px 15px -3px rgba(0,0,0,.1);
+  box-shadow: 0 10px 15px -3px rgba(0,0,0,.15);
+  transition: background 0.2s;
 }
 .pf-mobile-menu.hidden { display: none; }
 @media (min-width: 1024px) { .pf-mobile-menu { display: none !important; } }
@@ -298,12 +446,12 @@ h3 { font-size: 20px; font-weight: 600; line-height: 1.4; margin-bottom: 0.25em;
   display: block;
   padding: 12px 20px;
   font-weight: 500;
-  color: #4400ff;
+  color: var(--color-mob-link-color);
   border-radius: 8px;
   margin: 0 12px;
   transition: background 0.15s;
 }
-.pf-mob-link:hover { background: #eff6ff; }
+.pf-mob-link:hover { background: var(--color-dropdown-hover-bg); }
 
 .pf-mob-section { padding: 0 12px; margin-top: 4px; }
 .pf-mob-trigger {
@@ -313,7 +461,7 @@ h3 { font-size: 20px; font-weight: 600; line-height: 1.4; margin-bottom: 0.25em;
   justify-content: space-between;
   padding: 12px 20px;
   font-weight: 500;
-  color: #334155;
+  color: var(--color-nav-link-text);
   background: transparent;
   border: none;
   border-radius: 8px;
@@ -322,8 +470,8 @@ h3 { font-size: 20px; font-weight: 600; line-height: 1.4; margin-bottom: 0.25em;
   transition: background 0.15s;
   font-family: inherit;
 }
-.pf-mob-trigger:hover { background: #bfdbfe; }
-.pf-mob-trigger.open { background: #bfdbfe; color: #1d4ed8; }
+.pf-mob-trigger:hover { background: var(--color-nav-hover-bg); }
+.pf-mob-trigger.open { background: var(--color-nav-hover-bg); color: var(--color-nav-active-text); }
 .pf-mob-arrow { transition: transform 0.2s; }
 .pf-mob-arrow.open { transform: rotate(180deg); }
 .pf-mob-panel { overflow: hidden; max-height: 0; opacity: 0; transition: max-height 0.25s ease-out, opacity 0.25s ease-out; }
@@ -331,16 +479,16 @@ h3 { font-size: 20px; font-weight: 600; line-height: 1.4; margin-bottom: 0.25em;
 .pf-mob-sub {
   display: block;
   padding: 8px 20px;
-  color: #334155;
+  color: var(--color-nav-link-text);
   border-radius: 8px;
   font-size: 14px;
   margin: 0 4px 0 28px;
-  transition: background 0.15s;
+  transition: background 0.15s, color 0.15s;
 }
-.pf-mob-sub:hover { background: #eff6ff; color: #1d4ed8; }
+.pf-mob-sub:hover { background: var(--color-dropdown-hover-bg); color: var(--color-nav-active-text); }
 
 /* ── Footer ────────────────────────────────────────────────── */
-.pf-footer { background: var(--color-footer-bg); width: 100%; }
+.pf-footer { background: var(--color-footer-bg); width: 100%; transition: background 0.2s; }
 .pf-footer-inner { max-width: 1280px; margin: auto; padding: 40px 16px; }
 .pf-footer-grid {
   display: none;
@@ -350,13 +498,13 @@ h3 { font-size: 20px; font-weight: 600; line-height: 1.4; margin-bottom: 0.25em;
 @media (min-width: 768px) { .pf-footer-grid { display: grid; grid-template-columns: repeat(4, 1fr); } }
 .pf-footer-mobile { display: block; margin-bottom: 24px; }
 @media (min-width: 768px) { .pf-footer-mobile { display: none; } }
-.pf-footer-col-title { font-weight: 600; text-transform: uppercase; opacity: 0.8; margin: 12px 0; font-size: 13px; }
-.pf-footer-link { display: block; padding: 4px 0; font-size: 14px; color: #1e3a5f; transition: color 0.15s; }
-.pf-footer-link:hover { text-decoration: underline; color: #1d4ed8; }
-.pf-footer-hr { border: none; border-top: 1px solid rgba(255,255,255,0.25); margin: 24px 0; }
-.pf-footer-bottom { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; font-size: 13px; gap: 16px; }
-.pf-footer-legal { display: flex; flex-wrap: wrap; gap: 4px; color: #213547; align-items: center; }
-.pf-footer-legal a { color: #1d4ed8; }
+.pf-footer-col-title { font-weight: 600; text-transform: uppercase; opacity: 0.8; margin: 12px 0; font-size: 13px; color: var(--color-footer-text); }
+.pf-footer-link { display: block; padding: 4px 0; font-size: 14px; color: var(--color-footer-text); transition: color 0.15s; }
+.pf-footer-link:hover { text-decoration: underline; color: var(--color-footer-link-hover); }
+.pf-footer-hr { border: none; border-top: 1px solid rgba(128,128,128,0.2); margin: 24px 0; }
+.pf-footer-bottom { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; font-size: 13px; gap: 16px; color: var(--color-footer-text); }
+.pf-footer-legal { display: flex; flex-wrap: wrap; gap: 4px; color: var(--color-footer-text); align-items: center; }
+.pf-footer-legal a { color: var(--color-footer-link-hover); }
 .pf-social-row { display: flex; gap: 8px; flex-shrink: 0; }
 @media (max-width: 1023px) { .pf-social-row { margin-top: 20px; } }
 .pf-social-icon {
@@ -374,7 +522,7 @@ h3 { font-size: 20px; font-weight: 600; line-height: 1.4; margin-bottom: 0.25em;
 .pf-social-icon:hover { opacity: 0.8; }
 .pf-social-icon svg { width: 14px; height: 14px; }
 
-/* ── Shared Tool Card (used on Home) ───────────────────────── */
+/* ── Tool Cards ────────────────────────────────────────────── */
 .pf-tool-grid {
   display: grid;
   gap: 28px;
@@ -391,17 +539,17 @@ h3 { font-size: 20px; font-weight: 600; line-height: 1.4; margin-bottom: 0.25em;
   flex-direction: column;
   margin-top: 16px;
   box-shadow: 0 10px 15px -3px rgba(0,0,0,.1);
-  border: 1px solid #e5e7eb;
+  border: 1px solid var(--color-input-border);
   transition: transform 0.2s, border-color 0.2s;
 }
 .pf-tool-card:hover { transform: rotate(-2deg); }
 .pf-tool-card .pf-card-btn { margin-top: auto; }
 .pf-tool-card-green {
-  background: linear-gradient(to bottom, #f2fff8, #b2ffd6);
+  background: linear-gradient(to bottom, var(--color-green-card-from), var(--color-green-card-to));
 }
 .pf-tool-card-green:hover { border-color: var(--color-green-border); }
 .pf-tool-card-blue {
-  background: linear-gradient(to bottom, #f2f8ff, #b2d6ff);
+  background: linear-gradient(to bottom, var(--color-blue-card-from), var(--color-blue-card-to));
 }
 .pf-tool-card-blue:hover { border-color: var(--color-blue-border); }
 
@@ -432,7 +580,7 @@ h3 { font-size: 20px; font-weight: 600; line-height: 1.4; margin-bottom: 0.25em;
 
 /* ── FAQ ───────────────────────────────────────────────────── */
 .pf-faq-box {
-  background: #fff;
+  background: var(--color-stat-card-bg);
   border-radius: 24px;
   max-width: 896px;
   margin: 0 auto;
@@ -446,7 +594,7 @@ h3 { font-size: 20px; font-weight: 600; line-height: 1.4; margin-bottom: 0.25em;
   text-align: left;
   padding: 12px 16px;
   border-radius: 6px;
-  border: 1px solid #e5e7eb;
+  border: 1px solid var(--color-input-border);
   font-weight: 500;
   font-size: 15px;
   display: flex;
@@ -456,44 +604,44 @@ h3 { font-size: 20px; font-weight: 600; line-height: 1.4; margin-bottom: 0.25em;
   background: transparent;
   cursor: pointer;
   transition: background 0.15s, border-color 0.15s;
-  color: #213547;
+  color: var(--color-body-text);
   font-family: inherit;
 }
-.pf-faq-btn:hover, .pf-faq-btn.open { border-color: #3b82f6; background: #dbeafe; }
+.pf-faq-btn:hover, .pf-faq-btn.open { border-color: var(--color-brand-blue); background: var(--color-dropdown-bg); }
 .pf-faq-icon { flex-shrink: 0; transition: transform 0.2s; }
 .pf-faq-icon.open { transform: rotate(180deg); }
 .pf-faq-panel {
   padding: 12px 16px;
   font-size: 15px;
   line-height: 1.7;
-  color: #374151;
+  color: var(--color-muted-text);
   display: none;
   text-align: left;
 }
 .pf-faq-panel.open { display: block; }
-.pf-faq-panel a { color: #2563eb; text-decoration: underline; }
+.pf-faq-panel a { color: var(--color-brand-blue); text-decoration: underline; }
 
 /* ── Research Cards ────────────────────────────────────────── */
 .pf-research-card {
-  background: #fff;
-  border: 1px solid #e5e7eb;
+  background: var(--color-stat-card-bg);
+  border: 1px solid var(--color-input-border);
   border-radius: 16px;
   padding: 24px;
   transition: box-shadow 0.2s, transform 0.2s;
   box-shadow: 0 1px 3px rgba(0,0,0,.06);
 }
 .pf-research-card:hover { box-shadow: 0 8px 24px rgba(0,0,0,.1); transform: translateY(-2px); }
-.pf-research-journal { font-size: 13px; font-weight: 600; color: #2563eb; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 8px; }
-.pf-research-title { font-size: 17px; font-weight: 700; color: #1e3a5f; line-height: 1.4; margin-bottom: 8px; }
-.pf-research-abstract { font-size: 14px; color: #4b5563; line-height: 1.7; margin-bottom: 12px; }
-.pf-research-meta { font-size: 13px; color: #6b7280; margin-bottom: 12px; }
+.pf-research-journal { font-size: 13px; font-weight: 600; color: var(--color-brand-blue); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 8px; }
+.pf-research-title { font-size: 17px; font-weight: 700; color: var(--color-header-text); line-height: 1.4; margin-bottom: 8px; }
+.pf-research-abstract { font-size: 14px; color: var(--color-muted-text); line-height: 1.7; margin-bottom: 12px; }
+.pf-research-meta { font-size: 13px; color: var(--color-muted-text); margin-bottom: 12px; opacity: 0.8; }
 .pf-research-link {
   display: inline-flex;
   align-items: center;
   gap: 6px;
   font-size: 14px;
   font-weight: 500;
-  color: #2563eb;
+  color: var(--color-brand-blue);
   transition: gap 0.15s;
 }
 .pf-research-link:hover { gap: 10px; text-decoration: underline; }
@@ -508,8 +656,8 @@ h3 { font-size: 20px; font-weight: 600; line-height: 1.4; margin-bottom: 0.25em;
 @media (min-width: 1024px) { .pf-team-grid { grid-template-columns: repeat(3, 1fr); } }
 
 .pf-team-card {
-  background: #fff;
-  border: 1px solid #e5e7eb;
+  background: var(--color-stat-card-bg);
+  border: 1px solid var(--color-input-border);
   border-radius: 12px;
   padding: 16px;
   display: flex;
@@ -517,7 +665,7 @@ h3 { font-size: 20px; font-weight: 600; line-height: 1.4; margin-bottom: 0.25em;
   gap: 12px;
   transition: box-shadow 0.2s;
 }
-.pf-team-card:hover { box-shadow: 0 4px 12px rgba(0,0,0,.08); }
+.pf-team-card:hover { box-shadow: 0 4px 12px rgba(0,0,0,.12); }
 .pf-team-avatar {
   width: 36px;
   height: 36px;
@@ -529,6 +677,11 @@ h3 { font-size: 20px; font-weight: 600; line-height: 1.4; margin-bottom: 0.25em;
 }
 .pf-team-name { font-weight: 700; font-size: 15px; margin-bottom: 4px; }
 .pf-team-role { font-size: 13px; padding-top: 8px; margin-top: 8px; border-top: 1px solid; }
+
+/* Dark overrides for team card inline colors */
+html[data-theme="dark"] .pf-team-name { color: var(--color-blue-dark) !important; }
+html[data-theme="dark"] .pf-team-role { color: var(--color-muted-text) !important; border-color: var(--color-input-border) !important; }
+html[data-theme="dark"] .pf-team-avatar { background: #162032 !important; color: var(--color-blue-mid) !important; }
 
 /* ── Teacher Guides Sidebar ────────────────────────────────── */
 .pf-guides-layout {
@@ -550,30 +703,34 @@ h3 { font-size: 20px; font-weight: 600; line-height: 1.4; margin-bottom: 0.25em;
   padding: 16px;
 }
 @media (max-width: 767px) { .pf-guides-sidebar { width: 100%; position: static; } }
-.pf-guides-sidebar-title { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: #6b7280; margin-bottom: 12px; }
+.pf-guides-sidebar-title { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--color-muted-text); margin-bottom: 12px; }
 .pf-guide-link {
   display: block;
   padding: 10px 12px;
   border-radius: 8px;
   font-size: 14px;
-  color: #334155;
+  color: var(--color-nav-link-text);
   transition: background 0.15s, color 0.15s;
   line-height: 1.4;
   margin-bottom: 4px;
 }
-.pf-guide-link:hover { background: #bfdbfe; color: #1d4ed8; }
+.pf-guide-link:hover { background: var(--color-nav-hover-bg); color: var(--color-nav-active-text); }
 .pf-guides-main { flex: 1; }
-.pf-breadcrumb { font-size: 13px; color: #6b7280; margin-bottom: 24px; display: flex; align-items: center; gap: 6px; }
-.pf-breadcrumb a { color: #2563eb; }
+.pf-breadcrumb { font-size: 13px; color: var(--color-muted-text); margin-bottom: 24px; display: flex; align-items: center; gap: 6px; }
+.pf-breadcrumb a { color: var(--color-brand-blue); }
 .pf-breadcrumb-sep { opacity: 0.5; }
 
-/* ── "See It In Action" section ────────────────────────────── */
+/* ── "See It In Action" card ───────────────────────────────── */
 .pf-action-card {
   background: linear-gradient(to bottom, #94cffa, #b5defb);
   border-radius: 16px;
   padding: 12px;
   max-width: 1024px;
   margin: 0 auto;
+}
+html[data-theme="dark"] .pf-action-card {
+  background: #161b22;
+  border: 1px solid #30363d;
 }
 @media (min-width: 1024px) { .pf-action-card { padding: 40px 12px; } }
 .pf-action-row {
@@ -594,11 +751,18 @@ h3 { font-size: 20px; font-weight: 600; line-height: 1.4; margin-bottom: 0.25em;
 
 /* ── Reveal section ────────────────────────────────────────── */
 .pf-reveal-card {
-  background: #fff;
+  background: var(--color-stat-card-bg);
   border-radius: 40px;
   padding: 32px;
   max-width: 896px;
   margin: 0 auto;
 }
-@media (min-width: 768px) { .pf-reveal-card { padding: 64px 32px 32px; } }/* brand tokens v1 */
-/* button axis fix */
+@media (min-width: 768px) { .pf-reveal-card { padding: 64px 32px 32px; } }
+
+/* ── Research paper dark overrides ─────────────────────────── */
+html[data-theme="dark"] .pf-paper-heading { color: var(--color-green-mid) !important; }
+html[data-theme="dark"] .pf-paper-read-btn {
+  background: var(--color-green-btn-bg) !important;
+  color: var(--color-green-dark) !important;
+  border-color: var(--color-green-border) !important;
+}

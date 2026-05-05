@@ -69,7 +69,7 @@ function PaperSection({ bg, journal, abstract, article, journalLabel, authors, r
       <section className="pf-section">
 
         <AnimateIn>
-          <h2 style={{ fontWeight: 700, maxWidth: 768, margin: "0 auto 4px", color: "#00592A" }}>
+          <h2 className="pf-paper-heading" style={{ fontWeight: 700, maxWidth: 768, margin: "0 auto 4px", color: "#00592A" }}>
             {journal}
           </h2>
         </AnimateIn>
@@ -116,7 +116,7 @@ function PaperSection({ bg, journal, abstract, article, journalLabel, authors, r
               transition: "all 0.3s ease-in-out",
               boxShadow: "0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -4px rgba(0,0,0,0.1)",
             }}
-            onMouseEnter={(e) => { e.currentTarget.style.transform = "scale(0.95)"; }}
+            className="pf-paper-read-btn" onMouseEnter={(e) => { e.currentTarget.style.transform = "scale(0.95)"; }}
             onMouseLeave={(e) => { e.currentTarget.style.transform = "scale(1)"; }}
           >
             Read: {readLabel} <ExternalArrow />
@@ -145,8 +145,8 @@ export default function Research() {
         ))}
       </div>
 
-      <div style={{ background: "#f3f4f6", width: "100%", padding: "40px 16px 24px", textAlign: "center" }}>
-        <h1 style={{ color: "#003f81", fontWeight: 600, fontSize: 30, lineHeight: 1.2, margin: 0 }}>
+      <div style={{ background: "var(--color-research-extra-bg)", width: "100%", padding: "40px 16px 24px", textAlign: "center" }}>
+        <h1 style={{ color: "var(--color-research-extra-heading)", fontWeight: 600, fontSize: 30, lineHeight: 1.2, margin: 0 }}>
           Additional Related Research
         </h1>
         <p style={{ opacity: 0.8, marginTop: 4 }}>

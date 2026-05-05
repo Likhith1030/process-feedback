@@ -1,5 +1,6 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./styles/global.css";
+import { ThemeProvider } from "./context/ThemeContext";
 
 import Navbar        from "./components/Navbar";
 import Footer        from "./components/Footer";
@@ -40,21 +41,23 @@ function Layout({ children }) {
  */
 export default function App() {
   return (
-    <BrowserRouter>
-      <ScrollToTop />
-      <Layout>
-        <Routes>
-          <Route path="/"              element={<Home />} />
-          <Route path="/contact"       element={<Contact />} />
-          <Route path="/team"          element={<Team />} />
-          <Route path="/research"      element={<Research />} />
-          <Route path="/docs/teachers" element={<TeacherGuides />} />
-          <Route path="/attribution"   element={<Attribution />} />
+    <ThemeProvider>
+      <BrowserRouter>
+        <ScrollToTop />
+        <Layout>
+          <Routes>
+            <Route path="/"              element={<Home />} />
+            <Route path="/contact"       element={<Contact />} />
+            <Route path="/team"          element={<Team />} />
+            <Route path="/research"      element={<Research />} />
+            <Route path="/docs/teachers" element={<TeacherGuides />} />
+            <Route path="/attribution"   element={<Attribution />} />
 
-          {/* redirect unknown paths to Home */}
-          <Route path="*" element={<Error />} />
-        </Routes>
-      </Layout>
-    </BrowserRouter>
+            {/* redirect unknown paths to Home */}
+            <Route path="*" element={<Error />} />
+          </Routes>
+        </Layout>
+      </BrowserRouter>
+    </ThemeProvider>
   );
 }
