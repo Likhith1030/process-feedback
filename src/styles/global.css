@@ -332,7 +332,7 @@ h3 { font-size: 20px; font-weight: 600; line-height: 1.4; margin-bottom: 0.25em;
 .pf-logo-sub { margin-top: 2px; font-size: 11px; white-space: nowrap; color: var(--color-header-text); }
 
 /* Desktop nav links */
-.pf-desk-nav { display: none; align-items: center; gap: 2px; height: 100%; }
+.pf-desk-nav { display: none; align-items: center; gap: 2px; height: 100%; margin-left: auto; }
 @media (min-width: 1024px) { .pf-desk-nav { display: flex; } }
 
 .pf-nav-link {
